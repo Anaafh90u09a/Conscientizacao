@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Conscientização sobre a Depressão</title>
+      <link rel="icon" href="transflagcircle.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #c3e0f0, #f0f4f8);
+      margin: 0;
+      padding: 0;
+      /*tem alguma width errada e nn sei qual é nesse porra*/
+      /*consegui arrumar*/
+    }
+
+    /* Menu fixo */
+    nav {
+      position: relative;
+      position: sticky;
+      /*nem sabia que esse comando existia, me salvou*/
+      top: 0;
+      width: auto;
+      background: #436492;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      text-align: center;
+    }
+    nav a:hover {
+      color: #c3e0f0;
+    }
+
+    header {
+      margin-bottom: 2px;
+      background: linear-gradient(135deg, #4a6fa5, #365278);
+      color: white;
+      padding: 2rem;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    section {
+      margin: 2rem auto;
+      max-width: 700px;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    button {
+      margin: 15px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4a6fa5, #678dcf);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    label:hover {
+      background: #f0f7ff;
+    }
+
+    h2 {
+      color: #3689ff;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffffff
+    }
+
+    #resultado, #mensagem {
+      margin-top: 30px;
+      padding: 15px 0;
+      /*nem sei se isso muda alguma porra*/
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    /* Linha do tempo */
+    .timeline {
+      position: relative;
+      margin: 2rem auto;
+      padding: 2rem 0;
+      max-width: 700px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #4a6fa5;
+      transform: translateX(-50%);
+    }
+    .timeline-card {
+      position: relative;
+      background: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      width: 45%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .timeline-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .timeline-card.left {
+      left: 0;
+    }
+    .timeline-card.right {
+      left: 48%;
+    }
+    .timeline-card::before {
+      content: '●';
+      position: absolute;
+      top: 20px;
+      font-size: 1.5rem;
+      color: #4a6fa5;
+    }
+    .timeline-card.left::before {
+      right: -25px;
+    }
+    .timeline-card.right::before {
+      left: -25px;
+    }
+
+    @media (max-width: 700px) {
+      .timeline::before { left: 10px; }
+      .timeline-card {
+        width: 80%;
+        margin-left: 0px;
+      }
+      .timeline-card.left, .timeline-card.right {
+        left: 20px;
+      }
+      .timeline-card::before {
+        left: -25px;
+      }
+      /*https://www.invertexto.com/?n=7gYhZJB*/
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu fixo -->
+  <nav>
+    <a href="#linha">Linha do Tempo</a>
+    <a href="#teste">Teste de Humor</a>
+    <a href="#apoio">Mensagens de Apoio</a>
+  </nav>
+
+  <header id="inicio">
+    <h1>💙 Conscientização sobre Depressão 💙</h1>
+    <p>Aprenda, reflita e compartilhe apoio</p>
+  </header>
+
+ <!-- Linha do tempo -->
+  <section id="linha">
+    <h2>📜 Linha do Tempo da Depressão</h2>
+    <div class="timeline">
+      <div class="timeline-card left">
+        <h3>📌 Primeiros Sintomas</h3>
+        <p>Alterações no sono, falta de energia e desânimo começam a aparecer.</p>
+      </div>
+      <div class="timeline-card right">
+        <h3>📌 Evolução</h3>
+        <p>A perda de interesse em atividades e sentimentos de tristeza tornam-se mais frequentes.</p>
+      </div>
+      <div class="timeline-card left">
+        <h3>📌 Impacto no Dia a Dia</h3>
+        <p>Relacionamentos, estudos e trabalho podem ser afetados.</p>
+      </div>
+      <div class="timeline-card right">
+        <h3>📌 Procura por Ajuda</h3>
+        <p>Apoio profissional e de pessoas próximas tornam-se fundamentais.</p>
+      </div>
+      <div class="timeline-card left">
+        <h3>📌 Tratamento</h3>
+        <p>Terapia, apoio social e, em alguns casos, medicação auxiliam na melhora.</p>
+      </div>
+      <div class="timeline-card right">
+        <h3>📌 Superação</h3>
+        <p>Com apoio e cuidado, é possível recuperar qualidade de vida e bem-estar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teste de humor -->
+  <section id="teste">
+    <h2>📝 Teste de Humor</h2>
+    <form id="quizForm">
+      <p>1. Como você tem dormido ultimamente?</p>
+      <label><input type="radio" name="q1" value="2"> 😴 Mal, quase não durmo</label>
+      <label><input type="radio" name="q1" value="1"> 😐 Regular</label>
+      <label><input type="radio" name="q1" value="0"> 🙂 Bem</label>
+
+      <p>2. Você sente prazer nas atividades que antes gostava?</p>
+      <label><input type="radio" name="q2" value="2"> 😔 Quase nunca</label>
+      <label><input type="radio" name="q2" value="1"> 😶 Às vezes</label>
+      <label><input type="radio" name="q2" value="0"> 😀 Sim, normalmente</label>
+
+      <p>3. Como está sua energia no dia a dia?</p>
+      <label><input type="radio" name="q3" value="2"> 💤 Muito baixa</label>
+      <label><input type="radio" name="q3" value="1"> 😕 Um pouco baixa</label>
+      <label><input type="radio" name="q3" value="0"> ⚡ Boa</label>
+
+      <button type="button" onclick="calcularResultado()">Ver resultado 🔎</button>
+    </form>
+    <div id="resultado"></div>
+  </section>
+
+  <!-- Mensagens de apoio -->
+  <section id="apoio">
+    <h2>🌟 Precisa de uma palavra de apoio?</h2>
+    <!--TOMA FDP, 9140198 MINUTOS PRA ARRUMAR ESSA PORRA-->
+    <button style="display: block; margin: 0 auto;" onclick="mostrarMensagem()">Gerar mensagem 💌</button>
+    <p id="mensagem"></p>
+  </section>
+
+  <script>
+    function calcularResultado() {
+      let form = document.forms["quizForm"];
+      let total = 0;
+      for (let i = 1; i <= 3; i++) {
+        let resposta = form["q" + i].value;
+        if (resposta) total += parseInt(resposta);
+      }
+
+      let msg = "";
+      if (total <= 1) {
+        msg = "✅ Seu humor parece estável. Continue cuidando de si!";
+      } else if (total <= 3) {
+        msg = "⚠️ Atenção: você pode estar passando por dificuldades. Converse com alguém de confiança.";
+      } else {
+        msg = "🚨 Sinal de alerta: se possível, procure ajuda profissional. Você não está sozinho(a).";
+      }
+
+      document.getElementById("resultado").innerText = msg;
+    }
+
+    function mostrarMensagem() {
+      const frases = [
+        "✨ Você é mais forte do que imagina.",
+        "💙 Tudo bem não estar bem o tempo todo.",
+        "🌱 Pequenos passos também são progressos.",
+        "🤝 Você não está sozinho, sempre há apoio.",
+        "☀️ Amanhã pode ser um novo começo.",
+        "🌻 Abrace as oportunidades e transforme-as em sucesso.",
+        "🌈 Acredite na beleza dos seus sonhos.",
+        "🌠 Acredite nos seus sonhos e lute por eles.",
+        "💫 Você é capaz de coisas incríveis.",
+        "🌟 A persistência é o segredo para alcançar o que você deseja.",
+        "🌷 Você é único e especial, o mundo precisa das suas habilidades e talentos.",
+        "💕 Sorria, pois você é capaz de fazer a diferença no mundo.",
+        "🌸 Tenha coragem de seguir o seu coração e perseguir seus objetivos."
+
+      ];
+      let aleatoria = frases[Math.floor(Math.random() * frases.length)];
+      document.getElementById("mensagem").innerText = aleatoria;
+    }
+
+    // Animação de aparecer ao rolar
+    const cards = document.querySelectorAll('.timeline-card');
+    function revelarCards() {
+      const trigger = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if (top < trigger) {
+          card.classList.add('show');
+        }
+      });
+    }
+    window.addEventListener('scroll', revelarCards);
+    window.addEventListener('load', revelarCards);
+
+    // Garantir que a página comece no topo
+    // peguei esse codigo pra perceber que tava acessando o index com #linha, agora vai ficar ai.
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+  });
+  </script>
+</body>
+</html>
+
+<!--nossa gente, do nada apareceu um codigo aqui no meu vscode, sera que um anjo que me enviou?-->
+<!--acho que tem coisa no style desse html em-->
+<!--escute End Of Summer - Tame Impala!-->
+
+<!--Creative Commons CC0 - Dominio Publico-->
